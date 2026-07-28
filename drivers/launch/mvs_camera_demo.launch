@@ -1,0 +1,9 @@
+<launch>
+  <!-- Camera only; config from my_demo/drivers/config (set MY_DEMO_ROOT in start script) -->
+  <arg name="demo_root" default="$(env MY_DEMO_ROOT)"/>
+  <arg name="camera_cfg" default="$(arg demo_root)/drivers/config/left_camera_trigger.yaml"/>
+
+  <node pkg="mvs_ros_driver" type="grabImgWithTrigger" name="mvs_camera_trigger"
+        args="$(arg camera_cfg)"
+        respawn="true" output="screen"/>
+</launch>

@@ -1,0 +1,22 @@
+<launch>
+  <!-- Livox driver only: no RViz, no rosbag -->
+  <arg name="bd_list" default="100000000000000"/>
+  <arg name="publish_freq" default="10.0"/>
+  <arg name="msg_frame_id" default="livox_frame"/>
+
+  <param name="xfer_format" value="1"/>
+  <param name="multi_topic" value="0"/>
+  <param name="data_src" value="0"/>
+  <param name="publish_freq" type="double" value="$(arg publish_freq)"/>
+  <param name="output_data_type" value="0"/>
+  <param name="cmdline_str" type="string" value="$(arg bd_list)"/>
+  <param name="cmdline_file_path" type="string" value=""/>
+  <param name="user_config_path" type="string" value="$(find livox_ros_driver)/config/livox_lidar_config.json"/>
+  <param name="frame_id" type="string" value="$(arg msg_frame_id)"/>
+  <param name="enable_lidar_bag" type="bool" value="false"/>
+  <param name="enable_imu_bag" type="bool" value="false"/>
+
+  <node name="livox_lidar_publisher" pkg="livox_ros_driver"
+        type="livox_ros_driver_node" required="true"
+        output="screen" args="$(arg bd_list)"/>
+</launch>

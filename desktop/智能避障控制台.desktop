@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=智能避障控制台
+Comment=统一启动、停止和状态检查
+Exec=gnome-terminal -- bash -lc 'cd /home/jetson/Desktop/my_demo && ./democtl.sh menu'
+Terminal=false
+Categories=Utility;
